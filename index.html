@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 멍멍이 키우기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+
+    <!-- 상단바 -->
+    <header class="top-bar">
+      <div class="logo">🐶 멍멍이 키우기</div>
+      <div class="hud">
+        <div class="hud-item" id="coin-display">🪙 100</div>
+        <div class="hud-item" id="level-display">⭐ Lv.1</div>
+      </div>
+    </header>
+
+    <!-- 강아지 표시 영역 -->
+    <section class="dog-area">
+      <div class="status-bubble" id="status-bubble">🐶</div>
+      <div class="dog-stage">
+        <div class="dog" id="dog">
+          <div class="zzz" id="zzz">💤</div>
+          <div class="bichon">
+            <!-- 꼬리 -->
+            <div class="tail"></div>
+            <!-- 몸통 -->
+            <div class="body">
+              <span class="fluff f1"></span>
+              <span class="fluff f2"></span>
+              <span class="fluff f3"></span>
+              <div class="legs">
+                <div class="leg lf"></div>
+                <div class="leg rf"></div>
+              </div>
+            </div>
+            <!-- 머리 -->
+            <div class="head">
+              <div class="hair"></div>
+              <div class="ear left"></div>
+              <div class="ear right"></div>
+              <div class="face">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="nose"></div>
+                <div class="mouth"></div>
+                <div class="tongue"></div>
+              </div>
+            </div>
+            <!-- 목걸이 -->
+            <div class="collar" id="collar"></div>
+          </div>
+        </div>
+        <div class="thought" id="thought"></div>
+        <div class="ground"></div>
+        <div class="ball" id="ball"></div>
+      </div>
+      <div class="xp-bar-container">
+        <div class="xp-bar" id="xp-bar"></div>
+        <span class="xp-text" id="xp-text">다음 레벨까지 0</span>
+      </div>
+    </section>
+
+    <!-- 스탯 패널 -->
+    <section class="stats-panel">
+      <div class="stat">
+        <div class="stat-head">
+          <span>🍖 배고픔</span>
+          <span class="stat-val" id="hunger-val">100</span>
+        </div>
+        <div class="bar"><div class="bar-fill hunger" id="hunger-bar"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-head">
+          <span>😊 행복도</span>
+          <span class="stat-val" id="happiness-val">100</span>
+        </div>
+        <div class="bar"><div class="bar-fill happiness" id="happiness-bar"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-head">
+          <span>⚡ 에너지</span>
+          <span class="stat-val" id="energy-val">100</span>
+        </div>
+        <div class="bar"><div class="bar-fill energy" id="energy-bar"></div></div>
+      </div>
+      <div class="stat">
+        <div class="stat-head">
+          <span>🧼 청결도</span>
+          <span class="stat-val" id="cleanliness-val">100</span>
+        </div>
+        <div class="bar"><div class="bar-fill cleanliness" id="cleanliness-bar"></div></div>
+      </div>
+    </section>
+
+    <!-- 행동 버튼 -->
+    <section class="actions">
+      <button class="action-btn" id="btn-feed">
+        <span class="btn-icon">🍖</span>
+        <span class="btn-label">사료 주기</span>
+        <span class="btn-cost">🪙 10</span>
+      </button>
+      <button class="action-btn" id="btn-treat">
+        <span class="btn-icon">🦴</span>
+        <span class="btn-label">간식 주기</span>
+        <span class="btn-cost">🪙 25</span>
+      </button>
+      <button class="action-btn" id="btn-play">
+        <span class="btn-icon">⚾</span>
+        <span class="btn-label">놀아주기</span>
+        <span class="btn-cost">미니게임</span>
+      </button>
+      <button class="action-btn" id="btn-bathe">
+        <span class="btn-icon">🛁</span>
+        <span class="btn-label">씻겨주기</span>
+        <span class="btn-cost">🪙 15</span>
+      </button>
+      <button class="action-btn" id="btn-sleep">
+        <span class="btn-icon">😴</span>
+        <span class="btn-label">재우기</span>
+        <span class="btn-cost">에너지 충전</span>
+      </button>
+    </section>
+
+    <footer class="footer">
+      <span id="message">🐶 강아지와 친해져 보세요!</span>
+    </footer>
+  </div>
+
+  <!-- 미니게임 모달 -->
+  <div class="modal-overlay" id="game-overlay">
+    <div class="modal">
+      <h2>⚾ 공 던지기!</h2>
+      <p>나타나는 공을 최대한 많이 눌러주세요!</p>
+      <div class="game-area" id="game-area">
+        <div class="target" id="target"></div>
+      </div>
+      <div class="game-info">
+        <span>⏱️ <span id="timer">15</span>초</span>
+        <span>🎯 <span id="score">0</span>개</span>
+      </div>
+      <button class="action-btn start-btn" id="start-game">게임 시작!</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

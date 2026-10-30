@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎃 할로윈 호박 사냥</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <canvas id="game" width="960" height="600"></canvas>
+
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-item"><span class="hud-icon">🎯</span><span id="hud-score">0</span></div>
+      <div class="hud-item combo hidden" id="hud-combo">🔥 x1</div>
+      <div class="hud-item"><span class="hud-icon">⏱️</span><span id="hud-time">60</span>초</div>
+      <div class="hud-item"><span class="hud-icon">🏆</span><span id="hud-best">0</span></div>
+    </div>
+
+    <!-- 시작 화면 -->
+    <div class="overlay" id="start-screen">
+      <div class="panel">
+        <h1 class="title">🎃 할로윈 호박 사냥 🎃</h1>
+        <p class="subtitle">화살로 떠다니는 호박들을 맞혀라!</p>
+        <ul class="howto">
+          <li>🖱️ 마우스를 움직여 <b>조준</b></li>
+          <li>🖱️ 클릭(또는 <b>스페이스바</b>)으로 <b>화살 발사</b></li>
+          <li>🎯 연속 히트 시 <b>콤보 보너스</b> 최대 x5!</li>
+          <li>🌟 황금 호박 = <b>보너스 100점</b></li>
+          <li>⏱️ 60초 안에 최대한 많이!</li>
+        </ul>
+        <button class="btn" id="btn-start">🎯 게임 시작!</button>
+      </div>
+    </div>
+
+    <!-- 종료 화면 -->
+    <div class="overlay hidden" id="end-screen">
+      <div class="panel">
+        <h2 class="title small">🏁 게임 끝!</h2>
+        <div class="result">
+          <div class="score-big">🎯 <span id="final-score">0</span></div>
+          <div class="best-line">최고 점수: <span id="final-best">0</span></div>
+          <div class="grade" id="final-grade">🦇 ...</div>
+        </div>
+        <button class="btn" id="btn-restart">🔄 다시 하기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
