@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사주 운세 - 정통 사주팔자 풀이</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header-badge">☯ 정통 사주 · 사주팔자</div>
+      <h1>사주 운세</h1>
+      <p>생년월일시로 풀어보는 나의 사주팔자</p>
+    </header>
+
+    <!-- 입력 폼 -->
+    <section class="card form-card" id="form-card">
+      <h2 class="card-title">🔮 사주 입력</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">이름 (선택)</label>
+          <input type="text" id="name" placeholder="이름을 입력하세요" maxlength="12">
+        </div>
+        <div class="field">
+          <label for="gender">성별 (대운 방향)</label>
+          <select id="gender">
+            <option value="male">남자</option>
+            <option value="female">여자</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="birthdate">생년월일</label>
+          <input type="date" id="birthdate" min="1930-01-01" max="2026-12-31">
+          <small class="hint">※ 절기(입춘 등) 기준으로 사주가 계산됩니다</small>
+        </div>
+        <div class="field full">
+          <label for="birthhour">태어난 시각</label>
+          <select id="birthhour">
+            <option value="unknown">모르겠어요</option>
+            <option value="0">자시 (23:00 ~ 01:00) 🐭</option>
+            <option value="1">축시 (01:00 ~ 03:00) 🐮</option>
+            <option value="2">인시 (03:00 ~ 05:00) 🐯</option>
+            <option value="3">묘시 (05:00 ~ 07:00) 🐰</option>
+            <option value="4">진시 (07:00 ~ 09:00) 🐲</option>
+            <option value="5">사시 (09:00 ~ 11:00) 🐍</option>
+            <option value="6">오시 (11:00 ~ 13:00) 🐴</option>
+            <option value="7">미시 (13:00 ~ 15:00) 🐑</option>
+            <option value="8">신시 (15:00 ~ 17:00) 🐵</option>
+            <option value="9">유시 (17:00 ~ 19:00) 🐔</option>
+            <option value="10">술시 (19:00 ~ 21:00) 🐶</option>
+            <option value="11">해시 (21:00 ~ 23:00) 🐷</option>
+          </select>
+          <small class="hint">※ 모르실 경우 용신 오행에 맞는 시각으로 추정합니다</small>
+        </div>
+      </div>
+      <button class="btn-primary" id="btn-submit">✨ 사주 풀이 시작</button>
+    </section>
+
+    <!-- 로딩 -->
+    <div class="loading" id="loading" hidden>
+      <div class="spin">☯</div>
+      <p>사주팔자를 계산하고 있습니다...</p>
+    </div>
+
+    <!-- 결과 -->
+    <section class="result" id="result" hidden>
+
+      <!-- 사주팔자 -->
+      <div class="card">
+        <h2 class="card-title">📜 사주팔자</h2>
+        <div class="pillars" id="pillars"></div>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <!-- 종합운세 -->
+      <div class="card">
+        <h2 class="card-title">✨ 종합운세</h2>
+        <div id="summary"></div>
+      </div>
+
+      <!-- 오행 분석 -->
+      <div class="card">
+        <h2 class="card-title">🌿 오행 분석</h2>
+        <div id="elements"></div>
+      </div>
+
+      <!-- 상세 운세 -->
+      <div class="card">
+        <h2 class="card-title">🍀 상세 운세</h2>
+        <div class="fortune-tabs" id="fortune-tabs"></div>
+        <div class="fortune-body" id="fortune-body"></div>
+      </div>
+
+      <!-- 연간/오늘 운세 -->
+      <div class="dual">
+        <div class="card">
+          <h2 class="card-title">🐎 2026년 운세</h2>
+          <div id="year-fortune"></div>
+        </div>
+        <div class="card">
+          <h2 class="card-title">📅 오늘의 운세</h2>
+          <div id="today-fortune"></div>
+        </div>
+      </div>
+
+      <!-- 대운 -->
+      <div class="card">
+        <h2 class="card-title">⏳ 대운 · 세운 (10년 주기)</h2>
+        <div class="table-wrap">
+          <table class="luck-table" id="luck-table"></table>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <p>본 운세 콘텐츠는 재미와 오락 목적으로 제공되며, 절기 날짜와 대운 시작은 근사치입니다.<br>
+      실제 운세는 태어난 정확한 시각·장소·시간대에 따라 달라질 수 있습니다.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
